@@ -16,7 +16,7 @@ class SmsPhoneConfirmationServiceProvider extends ServiceProvider
          */
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'smsphoneconfirmation');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'smsphoneconfirmation');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         if ($this->app->runningInConsole()) {
