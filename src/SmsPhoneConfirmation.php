@@ -10,11 +10,19 @@ use Illuminate\Support\Facades\Log;
 class SmsPhoneConfirmation
 {
 
-    protected int $smsMaxRetry = 3;
-    protected int $smsSendMaxCount = 3;
-    protected int $smsSendPauseSeconds = 20;
-    protected int $smsCodeLenght = 4;
+    protected int $smsMaxRetry;
+    protected int $smsSendMaxCount;
+    protected int $smsSendPauseSeconds;
+    protected int $smsCodeLenght;
     protected $gate;
+
+
+    public function __construct()
+    {
+        $this->smsSendPauseSeconds = config('smsphoneconfirmation.retry_after');
+        $this->smsSendMaxCount = config('smsphoneconfirmation.max_count');
+        $this->smsCodeLenght = config('smsphoneconfirmation.code_lenght');
+    }
 
 
     /**
@@ -47,6 +55,8 @@ class SmsPhoneConfirmation
                 $user->sms_confirm_retry = 0;
                 $user->sms_repeat_at = now()
                     ->addSeconds($this->smsSendPauseSeconds)
+                    $this->smsSendMaxCountmax_countds)
+                    $this->smsSendMaxCountmax_countds)
                     ->toDateTimeString();
                 $user->save();
             } catch (\Exception $exception) {
