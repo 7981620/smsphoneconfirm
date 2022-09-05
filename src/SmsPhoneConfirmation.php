@@ -55,8 +55,6 @@ class SmsPhoneConfirmation
                 $user->sms_confirm_retry = 0;
                 $user->sms_repeat_at = now()
                     ->addSeconds($this->smsSendPauseSeconds)
-                    $this->smsSendMaxCountmax_countds)
-                    $this->smsSendMaxCountmax_countds)
                     ->toDateTimeString();
                 $user->save();
             } catch (\Exception $exception) {
